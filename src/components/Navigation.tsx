@@ -1,0 +1,112 @@
+import * as React from 'react';
+import {
+  Collapse,
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
+  Nav,
+  Navbar,
+  NavbarBrand,
+  NavbarToggler,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+} from 'reactstrap';
+import styled from 'styled-components';
+import * as Contentful from 'contentful';
+
+interface Props {}
+
+interface State {
+  isOpen: boolean;
+  logo: string;
+}
+
+const NavbarContainer = styled.div`
+    margin-top: 10px;
+  `;
+
+export default class Navigation extends React.Component<Props, State> {
+  toggle = () => {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
+
+  state = {
+    isOpen: false,
+    logo: ''
+  };
+
+  async componentDidMount() {
+    const client = Contentful.createClient({
+      space: 'wn2l2ohr9qga',
+      accessToken: 'ed1bf7b4a8c5a4a8d5fc78768fa9bd07d625eb8cbb90ad2054c0eb4e57f8e636'
+    });
+
+    const logo = await client.getAsset('fueeC59d1CA2Eo0ScGI68'); // Route1VeloLogo
+    this.setState({ logo: logo.fields.file.url });
+  }
+
+  render() {
+    return (
+      <NavbarContainer className="container">
+        <Navbar color="light" light={true} expand="md">
+          <NavbarBrand href="/">
+            <img src={this.state.logo} alt=""/>
+          </NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar={true}>
+            <Nav className="ml-auto" navbar={true}>
+              <NavItem>
+                <NavLink href="/">Home</NavLink>
+              </NavItem>
+              <UncontrolledDropdown inNavbar={true}>
+                <DropdownToggle caret={true}>
+                  Greenbelt Series
+                </DropdownToggle>
+                <DropdownMenu right={true}>
+                  <DropdownItem>
+                    Info
+                  </DropdownItem>
+                  <DropdownItem>
+                    Directions
+                  </DropdownItem>
+                  <DropdownItem>
+                    Registration
+                  </DropdownItem>
+                  <DropdownItem>
+                    Frequently Asked Questions
+                  </DropdownItem>
+                  <DropdownItem>
+                    For New Racers
+                  </DropdownItem>
+                  <DropdownItem divider={true} />
+                  <DropdownItem>
+                    Results
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+              <NavItem>
+                <NavLink href="/hyatsvilecx">Hyattsville CX</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/membership">Membership</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/calendar">Calendar</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/rides">Rides</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/contactus">Contact Us</NavLink>
+              </NavItem>
+
+            </Nav>
+          </Collapse>
+        </Navbar>
+      </NavbarContainer>
+    );
+  }
+}
