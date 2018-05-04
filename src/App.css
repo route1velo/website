@@ -1,0 +1,33 @@
+#bg {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  z-index: -1;
+  background-color: #192e37;
+}
+
+#bg .firstStripe {
+  background-color:#4FA51E;
+  height:150px;
+  top:200px;
+  width:200%;
+  position:fixed
+}
+
+#bg .secondStripe {
+  background-color: #02a1cf;
+  height: 25px;
+  top:350px;
+  width:200%;
+  position:fixed;
+}
+
+#bg .thirdStripe {
+  background-color: #007bb9;
+  height: 100px;
+  top: 375px;
+  width:200%;
+  position:fixed;
+}
