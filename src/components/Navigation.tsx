@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {
+  Container,
   Collapse,
   DropdownItem,
   DropdownMenu,
@@ -13,7 +14,7 @@ import {
   UncontrolledDropdown,
 } from 'reactstrap';
 import styled from 'styled-components';
-import * as Contentful from 'contentful';
+import client from '../lib/ContentfulClient';
 
 interface Props {}
 
@@ -39,74 +40,71 @@ export default class Navigation extends React.Component<Props, State> {
   };
 
   async componentDidMount() {
-    const client = Contentful.createClient({
-      space: 'wn2l2ohr9qga',
-      accessToken: 'ed1bf7b4a8c5a4a8d5fc78768fa9bd07d625eb8cbb90ad2054c0eb4e57f8e636'
-    });
-
     const logo = await client.getAsset('fueeC59d1CA2Eo0ScGI68'); // Route1VeloLogo
     this.setState({ logo: logo.fields.file.url });
   }
 
   render() {
     return (
-      <NavbarContainer className="container">
-        <Navbar color="light" light={true} expand="md">
-          <NavbarBrand href="/">
-            <img src={this.state.logo} alt=""/>
-          </NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar={true}>
-            <Nav className="ml-auto" navbar={true}>
-              <NavItem>
-                <NavLink href="/">Home</NavLink>
-              </NavItem>
-              <UncontrolledDropdown inNavbar={true}>
-                <DropdownToggle caret={true}>
-                  Greenbelt Series
-                </DropdownToggle>
-                <DropdownMenu right={true}>
-                  <DropdownItem>
-                    <NavLink href="/greenbelt/info">Info</NavLink>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <NavLink href="/greenbelt/directions">Directions</NavLink>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <NavLink href="/greenbelt/registration">Registration</NavLink>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <NavLink href="/greenbelt/faq">Frequently Asked Questions</NavLink>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <NavLink href="/greenbelt/newRacers">For New Racers</NavLink>
-                  </DropdownItem>
-                  <DropdownItem divider={true} />
-                  <DropdownItem>
-                    <NavLink href="/greenbelt/results">Results</NavLink>
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
-              <NavItem>
-                <NavLink href="/hyatsvilecx">Hyattsville CX</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/membership">Membership</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/calendar">Calendar</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/rides">Rides</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/contactus">Contact Us</NavLink>
-              </NavItem>
+      <Container>
+        <NavbarContainer>
+          <Navbar color="light" light={true} expand="md">
+            <NavbarBrand href="/">
+              <img src={this.state.logo} alt=""/>
+            </NavbarBrand>
+            <NavbarToggler onClick={this.toggle} />
+            <Collapse isOpen={this.state.isOpen} navbar={true}>
+              <Nav className="ml-auto" navbar={true}>
+                <NavItem>
+                  <NavLink href="/">Home</NavLink>
+                </NavItem>
+                <UncontrolledDropdown inNavbar={true}>
+                  <DropdownToggle caret={true}>
+                    Greenbelt Series
+                  </DropdownToggle>
+                  <DropdownMenu right={true}>
+                    <DropdownItem>
+                      <NavLink href="/greenbelt/info">Info</NavLink>
+                    </DropdownItem>
+                    <DropdownItem>
+                      <NavLink href="/greenbelt/directions">Directions</NavLink>
+                    </DropdownItem>
+                    <DropdownItem>
+                      <NavLink href="/greenbelt/registration">Registration</NavLink>
+                    </DropdownItem>
+                    <DropdownItem>
+                      <NavLink href="/greenbelt/faq">Frequently Asked Questions</NavLink>
+                    </DropdownItem>
+                    <DropdownItem>
+                      <NavLink href="/greenbelt/newRacers">For New Racers</NavLink>
+                    </DropdownItem>
+                    <DropdownItem divider={true} />
+                    <DropdownItem>
+                      <NavLink href="/greenbelt/results">Results</NavLink>
+                    </DropdownItem>
+                  </DropdownMenu>
+                </UncontrolledDropdown>
+                <NavItem>
+                  <NavLink href="/hyatsvilecx">Hyattsville CX</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/membership">Membership</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/calendar">Calendar</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/rides">Rides</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/contactus">Contact Us</NavLink>
+                </NavItem>
 
-            </Nav>
-          </Collapse>
-        </Navbar>
-      </NavbarContainer>
+              </Nav>
+            </Collapse>
+          </Navbar>
+        </NavbarContainer>
+      </Container>
     );
   }
 }
