@@ -1,6 +1,10 @@
 import * as React from 'react';
 import './App.css';
 import Navigation from './components/Navigation';
+import TitleSponsor from './components/TitleSponsor';
+import {
+  Container
+} from 'reactstrap';
 
 class App extends React.Component {
   public render() {
@@ -11,7 +15,10 @@ class App extends React.Component {
           <div className="secondStripe"/>
           <div className="thirdStripe"/>
         </div>
-        <Navigation />
+        <Container>
+          <Navigation />
+          <TitleSponsor />
+        </ Container>
       </div>
     );
   }
