@@ -9,6 +9,7 @@
     "react-dom": "^16.3.2",
     "react-scripts-ts": "2.15.1",
     "reactstrap": "^6.0.1",
+    "showdown": "^1.8.6",
     "styled-components": "^3.2.6"
   },
   "scripts": {
@@ -18,11 +19,13 @@
     "eject": "react-scripts-ts eject"
   },
   "devDependencies": {
+    "@types/bootstrap": "^4.1.0",
     "@types/jest": "^22.2.3",
     "@types/node": "^10.0.3",
     "@types/react": "^16.3.13",
     "@types/react-dom": "^16.0.5",
     "@types/reactstrap": "^5.0.23",
+    "@types/showdown": "^1.7.3",
     "babel-core": "^6.26.3",
     "babel-runtime": "^6.26.0",
     "typescript": "^2.8.3"

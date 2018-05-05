@@ -23,9 +23,20 @@
     follow-redirects "^1.2.5"
     is-buffer "^1.1.5"
 
+"@types/bootstrap@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@types/bootstrap/-/bootstrap-4.1.0.tgz#b6504125870c5fc96225d9d461f06e5545e6b827"
+  dependencies:
+    "@types/jquery" "*"
+    popper.js "^1.14.1"
+
 "@types/jest@^22.2.3":
   version "22.2.3"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-22.2.3.tgz#0157c0316dc3722c43a7b71de3fdf3acbccef10d"
+
+"@types/jquery@*":
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.3.1.tgz#55758d44d422756d6329cbf54e6d41931d7ba28f"
 
 "@types/node@*", "@types/node@^10.0.3":
   version "10.0.3"
@@ -49,6 +60,10 @@
   resolved "https://registry.yarnpkg.com/@types/reactstrap/-/reactstrap-5.0.23.tgz#687ed94f7f28c9c05643ede1fba9b4a518dfae7d"
   dependencies:
     "@types/react" "*"
+
+"@types/showdown@^1.7.3":
+  version "1.7.3"
+  resolved "https://registry.yarnpkg.com/@types/showdown/-/showdown-1.7.3.tgz#94d384d9f9e58b2f30d8c3a1c60088db7c73e78c"
 
 abab@^1.0.4:
   version "1.0.4"
@@ -6315,6 +6330,12 @@ shell-quote@1.6.1, shell-quote@^1.6.1:
 shellwords@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/shellwords/-/shellwords-0.1.1.tgz#d6b9181c1a48d397324c84871efbcfc73fc0654b"
+
+showdown@^1.8.6:
+  version "1.8.6"
+  resolved "https://registry.yarnpkg.com/showdown/-/showdown-1.8.6.tgz#91ea4ee3b7a5448aaca6820a4e27e690c6ad771c"
+  dependencies:
+    yargs "^10.0.3"
 
 signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
