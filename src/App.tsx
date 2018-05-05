@@ -2,9 +2,9 @@ import * as React from 'react';
 import './App.css';
 import Navigation from './components/Navigation';
 import TitleSponsor from './components/TitleSponsor';
-import {
-  Container
-} from 'reactstrap';
+import Home from './pages/Home';
+
+import { Container } from 'reactstrap';
 
 class App extends React.Component {
   public render() {
@@ -18,6 +18,7 @@ class App extends React.Component {
         <Container>
           <Navigation />
           <TitleSponsor />
+          <Home />
         </ Container>
       </div>
     );
