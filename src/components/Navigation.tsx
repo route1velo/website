@@ -23,8 +23,8 @@ interface State {
 }
 
 const NavbarContainer = styled.div`
-    margin-top: 10px;
-  `;
+  margin-top: 10px;
+`;
 
 export default class Navigation extends React.Component<Props, State> {
   toggle = () => {
@@ -67,23 +67,23 @@ export default class Navigation extends React.Component<Props, State> {
                 </DropdownToggle>
                 <DropdownMenu right={true}>
                   <DropdownItem>
-                    Info
+                    <NavLink href="/greenbelt/info">Info</NavLink>
                   </DropdownItem>
                   <DropdownItem>
-                    Directions
+                    <NavLink href="/greenbelt/directions">Directions</NavLink>
                   </DropdownItem>
                   <DropdownItem>
-                    Registration
+                    <NavLink href="/greenbelt/registration">Registration</NavLink>
                   </DropdownItem>
                   <DropdownItem>
-                    Frequently Asked Questions
+                    <NavLink href="/greenbelt/faq">Frequently Asked Questions</NavLink>
                   </DropdownItem>
                   <DropdownItem>
-                    For New Racers
+                    <NavLink href="/greenbelt/newRacers">For New Racers</NavLink>
                   </DropdownItem>
                   <DropdownItem divider={true} />
                   <DropdownItem>
-                    Results
+                    <NavLink href="/greenbelt/results">Results</NavLink>
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
