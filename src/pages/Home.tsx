@@ -2,7 +2,7 @@ import * as React from 'react';
 import PageContent from '../components/PageContent';
 import client from '../lib/ContentfulClient';
 import { Entry } from 'contentful';
-import * as showdown from 'showdown';
+import convertMarkdown from '../lib/MarkdownConverter';
 
 interface Props {}
 interface State {
@@ -24,8 +24,7 @@ class Home extends React.Component<Props, State> {
 
   getContent = async () => {
     const entry: Entry<HomePage> = await client.getEntry('3DEk64jIQM6EAWkAqsIW6m');
-    const converter = new showdown.Converter();
-    this.setState({ content: {__html: converter.makeHtml(entry.fields.pageContent as string) }});
+    this.setState({ content: {__html: convertMarkdown(entry.fields.pageContent as string) }});
   }
 
   componentDidMount() {
