@@ -16,7 +16,7 @@ class PageContent extends React.Component<Props> {
     return (
       <Row>
         <Col md={12} lg={9}>
-          <ContentBlock>
+          <ContentBlock className="p-4">
             {this.props.children}
           </ContentBlock>
         </Col>
