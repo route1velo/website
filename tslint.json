@@ -2,6 +2,7 @@
   "extends": [
     "tslint-react"
   ],
+  "baseUrl": "https://route1velo.github.io/website",
   "rules": {
     "align": [
       true,
