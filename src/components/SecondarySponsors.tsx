@@ -1,7 +1,8 @@
 import * as React from 'react';
 // import client from '../lib/ContentfulClient';
-import { Col } from 'reactstrap';
+import { Col, Card } from 'reactstrap';
 import styled from 'styled-components';
+// import './secondarySponsors.scss';
 
 interface Props {}
 interface State {
@@ -24,18 +25,22 @@ export class SecondarySponsors extends React.Component<Props, State> {
 
   render() {
     return (
-      <Col md={12} lg={3} className="p-2">
-        <Wrapper>
+      <Col md={12} lg={3} className="mt-1">
+        <Wrapper className="p-3">
           <h2>Visit our Sponsors</h2>
-          {
-            this.state.sponsors.map( sponsor =>
-              (<Col lg={12} md={6} sm={6} xs={6}>
-                <a href="http://www.norco.com/" target="_blank">
-                  <img src="https://images.contentful.com/wn2l2ohr9qga/1a0o8EccuyG0G4AmOiWW6A/70b16ce2657886bf74dbab989c4bd710/norco.png" style={{ maxWidth: '100%' }}/>
-                </a>
-              </Col>)
-            )
-          }
+          <div className="d-flex flex-wrap align-items-center">
+            {
+              this.state.sponsors.map(sponsor =>
+                (
+                  <a href="http://www.norco.com/" target="_blank" style={{ margin: '5px auto' }}>
+                    <Card className="p-2 d-flex align-items-center">
+                      <img src="https://images.contentful.com/wn2l2ohr9qga/1a0o8EccuyG0G4AmOiWW6A/70b16ce2657886bf74dbab989c4bd710/norco.png?w=200" style={{ maxWidth: '100%' }} />
+                    </Card>
+                  </a>
+                )
+              )
+            }
+          </div>
         </Wrapper>
       </ Col>
     );
