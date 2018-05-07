@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Col, Row } from 'reactstrap';
 import styled from 'styled-components';
+import SecondarySponsors from '../components/SecondarySponsors';
 
 interface Props {
   children: any; // tslint:disable-line
@@ -14,12 +15,13 @@ class PageContent extends React.Component<Props> {
 
   render() {
     return (
-      <Row>
+      <Row className="mt-2">
         <Col md={12} lg={9}>
           <ContentBlock className="p-4">
             {this.props.children}
           </ContentBlock>
         </Col>
+        <SecondarySponsors />
       </Row>
     );
   }

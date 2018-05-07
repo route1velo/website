@@ -3,6 +3,7 @@ import PageContent from '../components/PageContent';
 import client from '../lib/ContentfulClient';
 import { Entry } from 'contentful';
 import convertMarkdown from '../lib/MarkdownConverter';
+import { Page } from './pageType';
 
 interface Props {}
 interface State {
@@ -10,14 +11,6 @@ interface State {
     __html: string;
   };
   jersey: string;
-}
-
-interface State {
-  jersey: string;
-}
-
-interface HomePage {
-  pageContent ?: undefined | string;
 }
 
 class Home extends React.Component<Props, State> {
@@ -29,7 +22,7 @@ class Home extends React.Component<Props, State> {
   };
 
   getContent = async () => {
-    const entry: Entry<HomePage> = await client.getEntry('3DEk64jIQM6EAWkAqsIW6m');
+    const entry: Entry<Page> = await client.getEntry('3DEk64jIQM6EAWkAqsIW6m');
     this.setState({ content: {__html: convertMarkdown(entry.fields.pageContent as string) }});
   }
 
