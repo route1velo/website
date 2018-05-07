@@ -14,6 +14,7 @@ import {
   UncontrolledDropdown,
 } from 'reactstrap';
 import client from '../lib/ContentfulClient';
+import './Navigation.css';
 
 interface Props {}
 
@@ -42,7 +43,7 @@ export default class Navigation extends React.Component<Props, State> {
   render() {
     return (
       <Container className="mt-3">
-        <Navbar color="light" light={true} expand="md">
+        <Navbar color="light" light={true} expand="lg">
           <NavbarBrand href="/">
             <img src={this.state.logo} alt=""/>
           </NavbarBrand>
