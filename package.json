@@ -2,7 +2,7 @@
   "name": "r1v-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://route1velo.info/",
+  "homepage": "https://route1velo.github.io/",
   "dependencies": {
     "bootstrap": "^4.1.1",
     "contentful": "^6.1.0",
