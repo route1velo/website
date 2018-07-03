@@ -5,6 +5,7 @@ import './App.css';
 import Navigation from './components/Navigation';
 import TitleSponsor from './components/TitleSponsor';
 import Home from './pages/Home';
+import GreenbeltResults from './pages/GreenbeltResults';
 import SimplePage from './pages/SimplePage';
 import NotFound from './pages/NotFound';
 
@@ -25,6 +26,7 @@ class App extends React.Component {
             <Switch>
               <Route exact={true} path="/404" component={NotFound} />
               <Route exact={true} path="/" component={Home} />
+              <Route path="/greenbelt/results" component={GreenbeltResults} />
               <Route path="/greenbelt/:pageName" component={SimplePage} />
               <Route path="/:pageName" component={SimplePage} />
             </Switch>

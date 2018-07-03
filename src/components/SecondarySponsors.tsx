@@ -25,7 +25,7 @@ export class SecondarySponsors extends React.Component<Props, State> {
 
   render() {
     return (
-      <Col md={12} lg={3} className="mt-1">
+      <Col lg={12} xl={3} className="mt-1">
         <Wrapper className="p-3">
           <h2>Visit our Sponsors</h2>
           <div className="d-flex flex-wrap align-items-center">

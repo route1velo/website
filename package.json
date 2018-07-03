@@ -2,7 +2,7 @@
   "name": "r1v-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://route1velo.github.io/website",
+  "homepage": "https://route1velo.github.io/",
   "dependencies": {
     "bootstrap": "^4.1.1",
     "contentful": "^6.1.0",
@@ -13,13 +13,16 @@
     "react-scripts-ts": "2.15.1",
     "reactstrap": "^6.0.1",
     "showdown": "^1.8.6",
-    "styled-components": "^3.2.6"
+    "styled-components": "^3.2.6",
+    "tabletop": "^1.5.2"
   },
   "scripts": {
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
-    "eject": "react-scripts-ts eject"
+    "eject": "react-scripts-ts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "@types/bootstrap": "^4.1.0",
@@ -32,6 +35,7 @@
     "@types/showdown": "^1.7.3",
     "babel-core": "^6.26.3",
     "babel-runtime": "^6.26.0",
+    "gh-pages": "^1.2.0",
     "typescript": "^2.8.3"
   }
 }

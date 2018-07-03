@@ -2,9 +2,14 @@ export interface Page {
   pageContent?: undefined | string;
 }
 
-export interface Ride {
-  rideName ?: string;
-  embedUrl ?: string;
-  rideDescription ?: string;
-  order ?: number;
+export interface ResultSheet {
+  sheetId: string;
+  sheetName: string;
+  showSheet: boolean;
+}
+
+export interface GreenbeltResultsConfig {
+  configurationObject: {
+    resultSheets: ResultSheet[];
+  };
 }

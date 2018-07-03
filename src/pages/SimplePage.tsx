@@ -34,7 +34,7 @@ class SimplePage extends React.Component<Props, State> {
     if (this.props.match.url.startsWith('/greenbelt')) {
       page = `greenbelt${page}`;
     }
-    console.log(page);
+
     const entries: EntryCollection<Page> = await client.getEntries({
       content_type: 'staticPage',
       'fields.urlId': page,
@@ -52,7 +52,6 @@ class SimplePage extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    console.log();
     this.getContent();
   }
 

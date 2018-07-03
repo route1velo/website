@@ -16,7 +16,7 @@ class PageContent extends React.Component<Props> {
   render() {
     return (
       <Row className="mt-2">
-        <Col md={12} lg={9}>
+        <Col lg={12} xl={9}>
           <ContentBlock className="p-4">
             {this.props.children}
           </ContentBlock>
