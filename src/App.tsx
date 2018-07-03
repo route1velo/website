@@ -20,7 +20,7 @@ class App extends React.Component {
           <div className="thirdStripe"/>
         </div>
 
-        <Router basename={process.env.PUBLIC_URL}>
+        <Router>
           <Container>
             <Navigation />
             <TitleSponsor />
