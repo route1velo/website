@@ -5,6 +5,8 @@ import { Redirect } from 'react-router';
 import { GreenbeltResultsConfig, ResultSheet } from './pageType';
 import { Entry } from 'contentful';
 import { Table, Media, Collapse } from 'reactstrap';
+import { FaChevronRight, FaChevronDown } from 'react-icons/lib/fa';
+import styled from 'styled-components';
 
 const TableTop = require('tabletop');
 
@@ -78,6 +80,13 @@ const ResultTable: React.SFC<TableProps> = ({ data, keyPrefix }) => {
   );
 };
 
+const SeriesWrapper = styled.div`
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 5px;
+`;
+
 class SimplePage extends React.Component<Props, State> {
   state: State = {
     notFound: false,
@@ -143,6 +152,12 @@ class SimplePage extends React.Component<Props, State> {
       .map(sheet => this.displayResults( sheet ));
   }
 
+  handleHeaderClick = (series: string) => {
+    const newState = Object.assign({}, this.state);
+    newState.series[series].collapsed = !newState.series[series].collapsed;
+    this.setState(newState);
+  }
+
   componentDidMount() {
     this.getContent();
   }
@@ -156,13 +171,6 @@ class SimplePage extends React.Component<Props, State> {
 
     return (
       <PageContent>
-        <ul>
-          {
-            Object.keys(this.state.series)
-              .filter( seriesName => this.state.series[seriesName].displayed)
-              .map( seriesName => ( <li key={seriesName}>{seriesName}</li> ))
-          }
-        </ul>
         {
           Object.keys(this.state.series).map( seriesName => {
             const series = this.state.series[seriesName];
@@ -170,47 +178,50 @@ class SimplePage extends React.Component<Props, State> {
               return null;
             }
             return (
-              <Media key={seriesName} className="mt-3">
-                <Media body={true}>
-                  <Media heading={true}>
-                    {seriesName}
-                  </Media>
-                  {
-                    (seriesName === 'A Series' || seriesName === 'B Series') &&
-                    series.data &&
-                    <Media>
-                      <Media body={true}>
-                        <Media heading={true}>
-                          Standings
-                          </Media>
-                        <Collapse isOpen={!series.collapsed} >
-                          <ResultTable keyPrefix={`${seriesName}Standings`} data={series.data.Standings} />
-                        </Collapse>
-                      </Media>
+              <SeriesWrapper key={seriesName}>
+                <Media key={seriesName} className="mt-3">
+                  <Media body={true}>
+                    <Media heading={true} onClick={() => this.handleHeaderClick(seriesName)}>
+                      {series.collapsed ? <FaChevronDown /> : <FaChevronRight />}
+                      {seriesName}
                     </Media>
-
-                  }
-
-                  {
-                    Object.keys(series.data as SeriesData)
-                      .filter(key => key !== 'Standings')
-                      .sort((prev, next) => Date.parse(prev) - Date.parse(next))
-                      .map( date => {
-                        return (
-                          series.data &&
-                          <Media key={`${seriesName}${date}`}>
-                            <Media body={true}>
-                              <Media heading={true}>
-                                {date}
+                    <Collapse isOpen={series.collapsed}>
+                      {
+                        (seriesName === 'A Series' || seriesName === 'B Series') &&
+                        series.data &&
+                        <Media>
+                          <Media body={true}>
+                            <Media heading={true}>
+                              Standings
                               </Media>
-                              <ResultTable data={series.data[date]} key={date} keyPrefix={`${seriesName}`} />
-                            </Media>
+                              <ResultTable keyPrefix={`${seriesName}Standings`} data={series.data.Standings} />
                           </Media>
-                        );
-                      })
-                  }
+                        </Media>
+
+                      }
+
+                      {
+                        Object.keys(series.data as SeriesData)
+                          .filter(key => key !== 'Standings')
+                          .sort((prev, next) => Date.parse(next) - Date.parse(prev))
+                          .map( date => {
+                            return (
+                              series.data &&
+                              <Media key={`${seriesName}${date}`}>
+                                <Media body={true}>
+                                  <Media heading={true}>
+                                    {date}
+                                  </Media>
+                                  <ResultTable data={series.data[date]} key={date} keyPrefix={`${seriesName}`} />
+                                </Media>
+                              </Media>
+                            );
+                          })
+                      }
+                    </Collapse>
+                  </Media>
                 </Media>
-              </Media>
+              </SeriesWrapper>
             );
           })
         }

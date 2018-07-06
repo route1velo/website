@@ -15,6 +15,7 @@ import {
 } from 'reactstrap';
 import client from '../lib/ContentfulClient';
 import './Navigation.css';
+// import styled from 'styled-components';
 
 interface Props {}
 
@@ -22,6 +23,10 @@ interface State {
   isOpen: boolean;
   logo: string;
 }
+
+// const StyledDropdownToggle = styled(DropdownToggle)`
+//   color: red;
+// `;
 
 export default class Navigation extends React.Component<Props, State> {
   toggle = () => {
@@ -43,7 +48,7 @@ export default class Navigation extends React.Component<Props, State> {
   render() {
     return (
       <Container className="mt-3">
-        <Navbar color="light" light={true} expand="lg">
+        <Navbar color="white" light={true} expand="lg">
           <NavbarBrand href="/">
             <img src={this.state.logo} alt=""/>
           </NavbarBrand>
@@ -54,7 +59,15 @@ export default class Navigation extends React.Component<Props, State> {
                 <NavLink href="/">Home</NavLink>
               </NavItem>
               <UncontrolledDropdown inNavbar={true}>
-                <DropdownToggle caret={true}>
+                <DropdownToggle
+                  caret={true}
+                  style={{
+                    color: 'rgba(0, 0, 0, 0.5)',
+                    backgroundColor: 'white',
+                    border: 'none',
+                    marginTop: 2,
+                  }}
+                >
                   Greenbelt Series
                 </DropdownToggle>
                 <DropdownMenu right={true}>
