@@ -2,9 +2,9 @@ import * as React from 'react';
 import PageContent from '../components/PageContent';
 import client from '../lib/ContentfulClient';
 import { EntryCollection } from 'contentful';
-import convertMarkdown from '../lib/MarkdownConverter';
 import { Page } from './pageType';
 import { Redirect } from 'react-router';
+const showdown = require('showdown');
 
 interface Props {
   match: {
@@ -30,6 +30,7 @@ class SimplePage extends React.Component<Props, State> {
   };
 
   getContent = async () => {
+    showdown.setOption('tables', true);
     let page = this.props.match.params.pageName;
     if (this.props.match.url.startsWith('/greenbelt')) {
       page = `greenbelt${page}`;
@@ -43,7 +44,7 @@ class SimplePage extends React.Component<Props, State> {
     if (entries.items && entries.items.length) {
       this.setState({
         content: {
-          __html: convertMarkdown(entries.items[0].fields.pageContent as string)
+          __html: new showdown.Converter().makeHtml(entries.items[0].fields.pageContent as string)
         }
       });
     } else {
