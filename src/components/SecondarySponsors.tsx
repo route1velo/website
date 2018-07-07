@@ -1,16 +1,35 @@
 import * as React from 'react';
-// import client from '../lib/ContentfulClient';
+import client from '../lib/ContentfulClient';
 import { Col, Card } from 'reactstrap';
 import styled from 'styled-components';
+import { Entry } from 'contentful';
 // import './secondarySponsors.scss';
 
 interface Props {}
+interface Sponsor {
+  fields: {
+    logo: {
+      fields: {
+        file: {
+          url: string;
+        }
+      }
+    };
+    sponsorName: string;
+    url: string;
+  };
+}
 interface State {
-  sponsors: {}[];
+  sponsors: Entry<Sponsor>[];
 }
 
 const Wrapper = styled.div`
   background-color: white;
+`;
+
+const Image = styled.img`
+  max-width: 100%;
+  max-height: 100px;
 `;
 
 export class SecondarySponsors extends React.Component<Props, State> {
@@ -19,8 +38,11 @@ export class SecondarySponsors extends React.Component<Props, State> {
   };
 
   async componentDidMount() {
-    // const logo = await client.getAsset('6OcACWah4Augwkc42AWecA'); // Arrow Logo
-    this.setState({ sponsors: [1, 2, 3] });
+    const response = await client.getEntries({
+      content_type: 'secondarySponsor',
+      order: 'fields.order',
+    });
+    this.setState({ sponsors: response.items as Entry<Sponsor>[] });
   }
 
   render() {
@@ -30,11 +52,11 @@ export class SecondarySponsors extends React.Component<Props, State> {
           <h2>Visit our Sponsors</h2>
           <div className="d-flex flex-wrap align-items-center">
             {
-              this.state.sponsors.map((sponsor, index) =>
+              this.state.sponsors.map((sponsor: Sponsor, index) =>
                 (
-                  <a href="http://www.norco.com/" target="_blank" style={{ margin: '5px auto' }} key={index}>
+                  <a href={sponsor.fields.url} target="_blank" style={{ margin: '5px auto' }} key={index}>
                     <Card className="p-2 d-flex align-items-center">
-                      <img src="https://images.contentful.com/wn2l2ohr9qga/1a0o8EccuyG0G4AmOiWW6A/70b16ce2657886bf74dbab989c4bd710/norco.png?w=200" style={{ maxWidth: '100%' }} />
+                      <Image src={sponsor.fields.logo.fields.file.url}/>
                     </Card>
                   </a>
                 )
