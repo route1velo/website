@@ -26,7 +26,7 @@ const FooterWrapper = styled.div`
   background: #192e37;
   text-align: center;
   padding: 5px 0;
-  max-width: 100%;
+  max-width: 100%!important;
   & > a {
     margin: 5px 10px;
   }
