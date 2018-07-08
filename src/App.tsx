@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import GreenbeltResults from './pages/GreenbeltResults';
 import SimplePage from './pages/SimplePage';
 import NotFound from './pages/NotFound';
+import Footer from './components/Footer';
 
 class App extends React.Component {
   render() {
@@ -34,6 +35,9 @@ class App extends React.Component {
             </Switch>
           </ Container>
         </Router>
+
+        <Footer />
+
       </div>
     );
   }
