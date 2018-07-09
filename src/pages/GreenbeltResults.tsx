@@ -7,6 +7,7 @@ import { Entry } from 'contentful';
 import { Table, Media, Collapse } from 'reactstrap';
 import { FaChevronRight, FaChevronDown } from 'react-icons/lib/fa';
 import styled from 'styled-components';
+import Loading from '../components/Loading';
 
 const TableTop = require('tabletop');
 
@@ -175,7 +176,7 @@ class SimplePage extends React.Component<Props, State> {
           Object.keys(this.state.series).map( seriesName => {
             const series = this.state.series[seriesName];
             if (!series || !series.displayed) {
-              return null;
+              return <Loading />;
             }
             return (
               <SeriesWrapper key={seriesName}>
