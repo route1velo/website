@@ -5,6 +5,7 @@ import SecondarySponsors from '../components/SecondarySponsors';
 
 interface Props {
   children: any; // tslint:disable-line
+  noSponsors?: boolean;
 }
 
 const ContentBlock = styled.div`
@@ -16,12 +17,12 @@ class PageContent extends React.Component<Props> {
   render() {
     return (
       <Row className="mt-2">
-        <Col lg={12} xl={9}>
+        <Col lg={12} xl={this.props.noSponsors ? 12 : 9}>
           <ContentBlock className="p-4">
             {this.props.children}
           </ContentBlock>
         </Col>
-        <SecondarySponsors />
+        {!this.props.noSponsors && <SecondarySponsors />}
       </Row>
     );
   }

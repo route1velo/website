@@ -86,6 +86,12 @@ export default class Navigation extends React.Component<Props, State> {
                   <DropdownItem>
                     <NavLink href="/greenbelt/newracers">For New Racers</NavLink>
                   </DropdownItem>
+                  <DropdownItem>
+                    <NavLink href="/greenbelt/reg/4race">Purchase 4 Race Pass</NavLink>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <NavLink href="/greenbelt/reg/season">Purchase Season Pass</NavLink>
+                  </DropdownItem>
                   <DropdownItem divider={true} />
                   <DropdownItem>
                     <NavLink href="/greenbelt/results">Results</NavLink>

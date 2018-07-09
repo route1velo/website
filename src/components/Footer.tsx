@@ -50,7 +50,7 @@ class Footer extends React.Component<Props, State> {
       <FooterWrapper id="social-bar" className="container">
         {
           this.state.footerItems.map( (item: Entry<FooterItem>, index) => (
-            <a href={item.fields.url} target="_blank">
+            <a href={item.fields.url} target="_blank" key={index}>
               <img src={`${item.fields.logo.fields.file.url}?w=40`} width="40px" />
             </a>
           ))

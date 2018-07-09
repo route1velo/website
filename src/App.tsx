@@ -9,6 +9,7 @@ import GreenbeltResults from './pages/GreenbeltResults';
 import SimplePage from './pages/SimplePage';
 import NotFound from './pages/NotFound';
 import Footer from './components/Footer';
+import GreenbeltRegistration from './pages/GreenbeltRegistration';
 
 class App extends React.Component {
   render() {
@@ -30,6 +31,7 @@ class App extends React.Component {
               <Route exact={true} path="/404" component={NotFound} />
               <Route exact={true} path="/" component={Home} />
               <Route path="/greenbelt/results" component={GreenbeltResults} />
+              <Route path="/greenbelt/reg/:pageName" component={GreenbeltRegistration} />
               <Route path="/greenbelt/:pageName" component={SimplePage} />
               <Route path="/:pageName" component={SimplePage} />
             </Switch>
