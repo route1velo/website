@@ -50,7 +50,7 @@ export class SecondarySponsors extends React.Component<Props, State> {
     return (
       <Col lg={12} xl={3} className="mt-1">
         <Wrapper className="p-3">
-          <h2>Visit our Sponsors</h2>
+          <h3>Visit our Sponsors</h3>
           <div className="d-flex flex-wrap align-items-center">
             {
               this.state.sponsors.map((sponsor: Sponsor, index) =>
