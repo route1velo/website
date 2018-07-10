@@ -32,7 +32,7 @@ class SimplePage extends React.Component<Props, State> {
   getContent = async () => {
     showdown.setOption('tables', true);
     let page = this.props.match.params.pageName;
-    if (this.props.match.url.startsWith(1, 10) === 'greenbelt') {
+    if (this.props.match.url.substring(1, 10) === 'greenbelt') {
       page = `greenbelt${page}`;
     }
 
