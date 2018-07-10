@@ -35,7 +35,7 @@ class SiteAlert extends React.Component<SiteAlertProps, SiteAlertState> {
 
   render() {
     const { fields } = this.state.alert;
-    if (!fields ) { // || !fields.showAlert || new Date(fields.showAlertUntil) < new Date()) {
+    if (!fields || !fields.showAlert || new Date(fields.showAlertUntil) < new Date()) {
       return null;
     }
 
