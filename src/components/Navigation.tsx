@@ -15,7 +15,6 @@ import {
 } from 'reactstrap';
 import client from '../lib/ContentfulClient';
 import './Navigation.css';
-// import styled from 'styled-components';
 
 interface Props {}
 
@@ -23,10 +22,6 @@ interface State {
   isOpen: boolean;
   logo: string;
 }
-
-// const StyledDropdownToggle = styled(DropdownToggle)`
-//   color: red;
-// `;
 
 export default class Navigation extends React.Component<Props, State> {
   toggle = () => {
@@ -71,31 +66,15 @@ export default class Navigation extends React.Component<Props, State> {
                   Greenbelt Series
                 </DropdownToggle>
                 <DropdownMenu right={true}>
-                  <DropdownItem>
-                    <NavLink href="/greenbelt/info">Info</NavLink>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <NavLink href="/greenbelt/directions">Directions</NavLink>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <NavLink href="/greenbelt/registration">Registration</NavLink>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <NavLink href="/greenbelt/faq">Frequently Asked Questions</NavLink>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <NavLink href="/greenbelt/newracers">For New Racers</NavLink>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <NavLink href="/greenbelt/reg/4race">Purchase 4 Race Pass</NavLink>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <NavLink href="/greenbelt/reg/season">Purchase Season Pass</NavLink>
-                  </DropdownItem>
+                  <a href="/greenbelt/info" className="dropdown-item">Info</a>
+                  <a href="/greenbelt/directions" className="dropdown-item">Directions</a>
+                  <a href="/greenbelt/registration" className="dropdown-item">Registration</a>
+                  <a href="/greenbelt/faq" className="dropdown-item">Frequently Asked Questions</a>
+                  <a href="/greenbelt/newracers" className="dropdown-item">For New Racers</a>
+                  <a href="/greenbelt/reg/4race" className="dropdown-item">Purchase 4 Race Pass</a>
+                  <a href="/greenbelt/reg/season" className="dropdown-item">Purchase Season Pass</a>
                   <DropdownItem divider={true} />
-                  <DropdownItem>
-                    <NavLink href="/greenbelt/results">Results</NavLink>
-                  </DropdownItem>
+                  <a href="/greenbelt/results" className="dropdown-item">Results</a>
                 </DropdownMenu>
               </UncontrolledDropdown>
               <NavItem>

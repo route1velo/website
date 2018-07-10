@@ -24,7 +24,7 @@ class GreenbeltRegistration extends React.Component<Props> {
 
   getContent = async () => {
     let page = this.props.match.params.pageName;
-    if (this.props.match.url.substr(1, 10) === 'greenbelt') {
+    if (this.props.match.url.startsWith('/greenbelt')) {
       page = `greenbeltreg${page}`;
     }
 
