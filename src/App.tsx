@@ -10,6 +10,7 @@ import SimplePage from './pages/SimplePage';
 import NotFound from './pages/NotFound';
 import Footer from './components/Footer';
 import GreenbeltRegistration from './pages/GreenbeltRegistration';
+import SiteAlert from './components/SiteAlert';
 
 class App extends React.Component {
   render() {
@@ -27,6 +28,7 @@ class App extends React.Component {
           <Container>
             <Navigation />
             <TitleSponsor />
+            <SiteAlert />
             <Switch>
               <Route exact={true} path="/404" component={NotFound} />
               <Route exact={true} path="/" component={Home} />
