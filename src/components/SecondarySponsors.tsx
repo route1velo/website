@@ -27,8 +27,11 @@ const Wrapper = styled.div`
   background-color: white;
 `;
 
+// tslint:disable-next-line
+const isIE = !((window as any).ActiveXObject) && "ActiveXObject" in window;
+
 const Image = styled.img`
-  max-width: 100%;
+  max-width: ${ isIE ? '200px' : '100%'}!important;
   max-height: 100px;
 `;
 
