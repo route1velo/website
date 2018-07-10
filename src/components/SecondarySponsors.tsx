@@ -41,7 +41,7 @@ export class SecondarySponsors extends React.Component<Props, State> {
     const response = await client.getEntries({
       content_type: 'secondarySponsor',
       order: 'fields.order',
-      'fields.forHyattsvilleCx': window.location.pathname.includes('hyattsvillecx'),
+      'fields.forHyattsvilleCx': window.location.pathname.indexOf('hyattsvillecx') > -1,
     });
     this.setState({ sponsors: response.items as Entry<Sponsor>[] });
   }
