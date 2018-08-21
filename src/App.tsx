@@ -8,7 +8,7 @@ import GreenbeltResults from './pages/GreenbeltResults';
 import SimplePage from './pages/SimplePage';
 import NotFound from './pages/NotFound';
 import Footer from './components/Footer';
-import GreenbeltRegistration from './pages/GreenbeltRegistration';
+import Registration from './pages/Registration';
 import SiteAlert from './components/SiteAlert';
 import styled from 'styled-components';
 
@@ -71,7 +71,7 @@ class App extends React.Component {
               <Route exact={true} path="/404" component={NotFound} />
               <Route exact={true} path="/" component={Home} />
               <Route path="/greenbelt/results" component={GreenbeltResults} />
-              <Route path="/greenbelt/reg/:pageName" component={GreenbeltRegistration} />
+              <Route path="/greenbelt/reg/:pageName" component={Registration} />
               <Route path="/greenbelt/:pageName" component={SimplePage} />
               <Route path="/:pageName" component={SimplePage} />
             </Switch>
