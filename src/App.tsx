@@ -72,6 +72,7 @@ class App extends React.Component {
               <Route exact={true} path="/" component={Home} />
               <Route path="/greenbelt/results" component={GreenbeltResults} />
               <Route path="/greenbelt/reg/:pageName" component={Registration} />
+              <Route path="/reg/:pageName" component={Registration} />
               <Route path="/greenbelt/:pageName" component={SimplePage} />
               <Route path="/:pageName" component={SimplePage} />
             </Switch>
