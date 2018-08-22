@@ -2,6 +2,7 @@ import * as React from 'react';
 import client from '../lib/ContentfulClient';
 import { Entry } from 'contentful';
 import { Alert, Collapse } from 'reactstrap';
+const showdown = require('showdown');
 
 interface SiteAlertProps {}
 
@@ -35,13 +36,19 @@ class SiteAlert extends React.Component<SiteAlertProps, SiteAlertState> {
 
   render() {
     const { fields } = this.state.alert;
+
     if (!fields || !fields.showAlert || new Date(fields.showAlertUntil) < new Date()) {
       return null;
     }
 
+    const innerHtml = { 
+      __html: new showdown.Converter().makeHtml(fields.alertMessage) as string,
+    };
+
     return (
       <Collapse isOpen={this.state.isOpen}>
         <Alert color={fields.color}>
+         <div dangerouslySetInnerHTML={innerHtml} />           
           {this.state.alert.fields.alertMessage}
         </Alert>
       </Collapse>
