@@ -48,8 +48,7 @@ class SiteAlert extends React.Component<SiteAlertProps, SiteAlertState> {
     return (
       <Collapse isOpen={this.state.isOpen}>
         <Alert color={fields.color}>
-         <div dangerouslySetInnerHTML={innerHtml} />           
-          {this.state.alert.fields.alertMessage}
+         <div dangerouslySetInnerHTML={innerHtml} />          
         </Alert>
       </Collapse>
     );
