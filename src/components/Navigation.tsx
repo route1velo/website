@@ -52,7 +52,7 @@ export default class Navigation extends React.Component<Props, State> {
       content_type: 'navigation',
       order: 'fields.order',            
     }) as EntryCollection<NavigationItem>;
-    console.log(navigation);
+    
     this.setState({ 
       logo: logo.fields.file.url,
       navigation,
@@ -93,7 +93,7 @@ export default class Navigation extends React.Component<Props, State> {
                             {
                               nav.fields.children.map( (child, childIndex) => {
                                 if (child.fields.isSpacer) {
-                                  return <DropdownItem divider={true} />;
+                                  return <DropdownItem divider={true} key={childIndex}/>;
                                 } else {
                                   return (
                                     <a href={child.fields.url} key={childIndex} className="dropdown-item">
@@ -114,49 +114,7 @@ export default class Navigation extends React.Component<Props, State> {
                       );
                     }
                   })
-              }
-              {/* <NavItem>
-                <NavLink href="/">Home</NavLink>
-              </NavItem>
-              <UncontrolledDropdown inNavbar={true}>
-                <DropdownToggle
-                  caret={true}
-                  style={{
-                    color: 'rgba(0, 0, 0, 0.5)',
-                    backgroundColor: 'white',
-                    border: 'none',
-                    marginTop: 2,
-                  }}
-                >
-                  Greenbelt Series
-                </DropdownToggle>
-                <DropdownMenu right={true}>
-                  <a href="/greenbelt/info" className="dropdown-item">Info</a>
-                  <a href="/greenbelt/directions" className="dropdown-item">Directions</a>
-                  <a href="/greenbelt/registration" className="dropdown-item">Registration</a>
-                  <a href="/greenbelt/faq" className="dropdown-item">Frequently Asked Questions</a>
-                  <a href="/greenbelt/newracers" className="dropdown-item">For New Racers</a>
-                  <a href="/greenbelt/reg/4race" className="dropdown-item">Purchase 4 Race Pass</a>
-                  <a href="/greenbelt/reg/season" className="dropdown-item">Purchase Season Pass</a>
-                  <DropdownItem divider={true} />
-                  <a href="/greenbelt/results" className="dropdown-item">Results</a>
-                </DropdownMenu>
-              </UncontrolledDropdown>
-              <NavItem>
-                <NavLink href="/hyattsvillecx">Hyattsville CX</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/membership">Membership</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/calendar">Calendar</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/rides">Rides</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/contactus">Contact Us</NavLink>
-              </NavItem> */}
+              }              
             </Nav>
           </Collapse>
         </Navbar>
