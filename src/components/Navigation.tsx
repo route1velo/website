@@ -85,6 +85,7 @@ export default class Navigation extends React.Component<Props, State> {
                               backgroundColor: 'white',
                               border: 'none',
                               marginTop: 2,
+                              marginRight: 3,
                             }}
                           >
                             {nav.fields.navigationElementName}
