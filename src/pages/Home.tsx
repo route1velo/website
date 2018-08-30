@@ -5,7 +5,6 @@ import { Entry } from 'contentful';
 import convertMarkdown from '../lib/MarkdownConverter';
 import { Page } from './pageType';
 
-interface Props {}
 interface State {
   content: {
     __html: string;
@@ -13,7 +12,7 @@ interface State {
   jersey: string;
 }
 
-class Home extends React.Component<Props, State> {
+class Home extends React.Component<{}, State> {
   state = {
     content: {
       __html: ''

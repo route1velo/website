@@ -7,7 +7,7 @@ import { Entry } from 'contentful';
 import { Table, Media, Collapse } from 'reactstrap';
 import { FaChevronRight, FaChevronDown } from 'react-icons/lib/fa';
 import styled from 'styled-components';
-import Loading from '../components/Loading';
+import ResultsLoading from '../components/ResultsLoading';
 
 const TableTop = require('tabletop');
 
@@ -131,8 +131,7 @@ class SimplePage extends React.Component<Props, State> {
     openTables: new Set(),
   };
 
-  displayResults = async (sheet: ResultSheet) => {
-    console.log(sheet.sheetName);
+  displayResults = async (sheet: ResultSheet) => {    
     if (!sheet.showSheet) {
       this.setState({
         series: {
@@ -143,8 +142,7 @@ class SimplePage extends React.Component<Props, State> {
       return;
     }
 
-    const callback = (data: any, t: any) => {// tslint:disable-line
-      console.log(data);
+    const callback = (data: any, t: any) => {// tslint:disable-line      
       this.setState({
         series: {
           ...this.state.series,
@@ -165,7 +163,6 @@ class SimplePage extends React.Component<Props, State> {
 
   getContent = async () => {
     const config: Entry<GreenbeltResultsConfig> = await client.getEntry('635irUCsMgwWiyYYiS6OUU') as Entry<GreenbeltResultsConfig>;
-    console.log(config);
     config
       .fields
       .configurationObject
@@ -212,7 +209,7 @@ class SimplePage extends React.Component<Props, State> {
           Object.keys(this.state.series).map( seriesName => {
             const series = this.state.series[seriesName];
             if (!series || !series.displayed) {
-              return <Loading />;
+              return <ResultsLoading />;
             }
             return (
               <SeriesWrapper key={seriesName}>
@@ -245,10 +242,10 @@ class SimplePage extends React.Component<Props, State> {
                         Object.keys(series.data as SeriesData)
                           .filter(key => key !== 'Standings')
                           .sort((prev, next) => Date.parse(next) - Date.parse(prev))
-                          .map( date => {
+                          .map((date, index) => {
                             return (
                               series.data &&
-                              <TableWrapper>
+                              <TableWrapper key={index}>
                                 <Media className="mt-2">
                                   <Media body={true}>
                                     <Media heading={true} onClick={() => this.handleTableCollapseClick(seriesName + date)}>

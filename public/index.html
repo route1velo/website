@@ -52,8 +52,48 @@
       }(window.location))
     </script>
     <!-- End Single Page Apps for GitHub Pages -->
+    <style>
+      div.background {
+        position: fixed;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        z-index: -1;
+        background-color: #192e37;
+      }
+
+      div.background div.firstStripe {
+        background-color:#4FA51E;
+        height:150px;
+        top:250px;
+        width:200%;
+        position:fixed;
+      }
+
+      div.background div.secondStripe {
+        background-color: #02a1cf;
+        height: 25px;
+        top:400px;
+        width:200%;
+        position:fixed;
+      }
+
+      div.background div.thirdStripe {
+        background-color: #007bb9;
+        height: 100px;
+        top: 425px;
+        width:200%;
+        position:fixed;
+      }
+    </style>
   </head>
   <body>
+    <div class="background">
+      <div class="firstStripe"></div>
+      <div class="secondStripe"></div>
+      <div class="thirdStripe"></div>
+    </div>
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>

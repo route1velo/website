@@ -1,6 +1,5 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import * as Loadable from 'react-loadable';
 
 const Spinner = styled.div`
   width: 40px;
@@ -44,7 +43,7 @@ const Spinner = styled.div`
 }
 `;
 
-const Loading: React.SFC<Loadable.LoadingComponentProps> = () => (
+const Loading: React.SFC = () => (
   <Spinner>
     <div className="double-bounce1" />
     <div className="double-bounce2" />
