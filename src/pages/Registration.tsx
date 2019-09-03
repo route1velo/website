@@ -44,7 +44,7 @@ class GreenbeltRegistration extends React.Component<Props> {
       const script = document.createElement('script');
       script.src = 'https://www.bikereg.com/Scripts/athleteRegWidget.js';
       script.id = 'athleteRegWidget';
-      script.async = true;
+      // script.async = true;
       script.setAttribute('data-event', eventId as string);
 
       const content = document.getElementById('content');
@@ -68,8 +68,10 @@ class GreenbeltRegistration extends React.Component<Props> {
 
     return (
       <span>
+
         <PageContent noSponsors={true}>
-          <div id="content" />
+          <div id="content-1" />
+          <script id="athleteRegWidget" src="https://www.bikereg.com/Scripts/athleteRegWidget.js" data-event="hycx2019"/>
         </PageContent >
       </span>
     );
