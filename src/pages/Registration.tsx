@@ -68,10 +68,8 @@ class GreenbeltRegistration extends React.Component<Props> {
 
     return (
       <span>
-
         <PageContent noSponsors={true}>
-          <div id="content-1" />
-          <script id="athleteRegWidget" src="https://www.bikereg.com/Scripts/athleteRegWidget.js" data-event="hycx2019"/>
+          <div id="content" />
         </PageContent >
       </span>
     );
